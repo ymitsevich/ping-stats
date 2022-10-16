@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: env/php/Dockerfile
+    environment:
+      XDEBUG_CONFIG: idekey=PHPSTORM
+      PHP_IDE_CONFIG: serverName=ping-stats
+    volumes:
+      - ./app:/app
+      - ./env/php/php.local.ini:/usr/local/etc/php/conf.d/php.local.ini
+      - ./data/sqlite:/var/lib/sqlite
+    working_dir: /app
+    restart: always
+    networks:
+      - netw
+
+networks:
+  netw:
+    name: app_network
