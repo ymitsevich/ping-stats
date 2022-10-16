@@ -21,6 +21,9 @@ class Probe
     #[ORM\Column(length: 10000)]
     private ?string $response = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $ping = null;
+
     #[ORM\Column(type: Types::DATETIME_IMMUTABLE)]
     private ?DateTimeInterface $createdAt = null;
 
@@ -80,6 +83,18 @@ class Probe
     public function setResponse(?string $response): self
     {
         $this->response = $response;
+
+        return $this;
+    }
+
+    public function getPing(): ?int
+    {
+        return $this->ping;
+    }
+
+    public function setPing(?int $ping): self
+    {
+        $this->ping = $ping;
 
         return $this;
     }

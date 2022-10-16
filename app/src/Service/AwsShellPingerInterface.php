@@ -18,11 +18,16 @@ class AwsShellPingerInterface implements PingerInterface
 
     public function ping(): PingResponse
     {
-        $output = null;
+        $output = [];
         $returnValue = null;
         exec('ping -c ' . self::ATTEMPTS_COUNT . ' ' . self::DESTINATION_IP_ADDRESS, $output, $returnValue);
+
+        $matches = [];
         $output = implode(PHP_EOL, $output);
 
-        return $this->pingResponseFactory->create($returnValue === Command::SUCCESS, $output);
+        $pregResult = preg_match("/.*time=(?<ping>.*)\sms/", $output, $matches);
+        $ping = $pregResult && array_key_exists('ping', $matches) ? (int) $matches['ping'] : null;
+
+        return $this->pingResponseFactory->create($returnValue === Command::SUCCESS, $ping, $output);
     }
 }

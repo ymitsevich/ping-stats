@@ -11,6 +11,7 @@ class ProbeFactory
     {
         $probe = $pingResponse->isSuccessful() ? Probe::createSuccessful() : Probe::createFailed();
         $probe->setResponse($pingResponse->getContent());
+        $probe->setPing($pingResponse->getPing());
 
         return $probe;
     }

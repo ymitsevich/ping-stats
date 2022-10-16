@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20221016122024 extends AbstractMigration
+final class Version20221016141233 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,7 +20,7 @@ final class Version20221016122024 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE TABLE probe (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, is_success BOOLEAN NOT NULL, response CLOB NOT NULL, created_at DATETIME NOT NULL --(DC2Type:datetime_immutable)
+        $this->addSql('CREATE TABLE probe (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, is_success BOOLEAN NOT NULL, response CLOB NOT NULL, ping INTEGER DEFAULT NULL, created_at DATETIME NOT NULL --(DC2Type:datetime_immutable)
         )');
     }
 
