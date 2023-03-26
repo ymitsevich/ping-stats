@@ -1,4 +1,6 @@
 .DS_Store
+.idea
 
 # local db
 data/sqlite/app.db
+app/.phpunit.cache/

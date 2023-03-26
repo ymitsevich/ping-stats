@@ -1,2 +1,4 @@
 app/vendor
 app/var
+app/.env.local
+.git

@@ -4,7 +4,7 @@ namespace App\Service;
 
 use DateTimeImmutable;
 
-class EverySecondLooperInterface implements LooperInterface
+class EverySecondLooper implements LooperInterface
 {
     public function run(callable $callback): void
     {

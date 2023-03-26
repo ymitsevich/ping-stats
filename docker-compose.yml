@@ -9,14 +9,13 @@ services:
       XDEBUG_CONFIG: idekey=PHPSTORM
       PHP_IDE_CONFIG: serverName=ping-stats
     volumes:
-      - ./app:/app
+      - ./app:/app:delegated
       - ./env/php/php.local.ini:/usr/local/etc/php/conf.d/php.local.ini
       - ./data/sqlite:/var/lib/sqlite
     working_dir: /app
-    restart: always
+    restart: on-failure
     networks:
-      - netw
+      - app_network
 
 networks:
-  netw:
-    name: app_network
+  app_network:

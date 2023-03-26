@@ -61,3 +61,9 @@
 # Embedded web-server pid file
 /.web-server-pid
 
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+app/.phpunit.cache/
+###< phpunit/phpunit ###
