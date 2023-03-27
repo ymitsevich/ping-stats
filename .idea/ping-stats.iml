@@ -80,6 +80,9 @@
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/app/vendor/theseer/tokenizer" />
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+      <excludeFolder url="file://$MODULE_DIR$/app/var" />
+      <excludeFolder url="file://$MODULE_DIR$/app/vendor" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

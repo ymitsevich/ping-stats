@@ -1,15 +1,31 @@
 # ping-stats
-Network connection statistics
+Network connection statistics.
+Monitors connectivity with a certain host and stores results into DB.
+Sqlite as a default DB is used.
 
+### Tech description
+Docker, SQLite, Github Actions, Unit tests
+
+## Dev
 ### Init
-docker compose up -d
-
-### Preparations For Local Run
-docker compose exec app composer install --no-interaction --no-progress --optimize-autoloader
+make build-dev
 
 ### Preparations
-docker compose exec app php bin/console doctrine:database:create
-docker compose exec app php bin/console doctrine:migrations:migrate -n
+make init
+make composer
 
 ### Execute
-docker compose exec app php bin/console run:monitor
+make dev
+
+## Prod
+### Init
+make build-prod
+
+### Preparations
+make init
+
+### Execute
+make prod
+
+## Running Tests
+make test

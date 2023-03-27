@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      dockerfile: env/php/Dockerfile
+      args:
+        APP_ENV: prod
+    working_dir: /app
+    restart: on-failure
+    networks:
+      - app_network
+
+networks:
+  app_network:
