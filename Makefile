@@ -21,4 +21,4 @@ prod:
 	$(DOCKER_COMPOSE) -f docker-compose.prod.yml run --rm app bin/console run:monitor
 
 test:
-	$(DOCKER_COMPOSE) -f docker-compose.dev.yml run --rm app vendor/bin/phpunit
+	$(DOCKER_COMPOSE) -f docker-compose.prod.yml run --rm app vendor/bin/phpunit
