@@ -19,3 +19,17 @@ jobs:
 
       - name: Test
         run: make test
+
+  push-to-registry:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Tag and push Docker image
+        run: |
+          docker tag ping-stats:latest ghcr.io/ymitsevich/ping-stats:latest
+          docker push ghcr.io/ymitsevich/ping-stats:latest
