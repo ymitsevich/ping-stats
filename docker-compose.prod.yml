@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: env/php/Dockerfile
+      target: base
       args:
         APP_ENV: prod
     working_dir: /app
